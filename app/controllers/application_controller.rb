@@ -11,9 +11,9 @@ class ApplicationController < Sinatra::Base
   end
 
   post '/login' do
-   @user = User.find_by(:username = params[:username], password = params[:password])
-   @user.save
-  end
+   @user = User.find_by(:username => params[:username], :password => params[:password])
+   session[:user_id] = @user.id
+   end
 
   get '/account' do
 
